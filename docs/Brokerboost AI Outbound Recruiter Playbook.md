@@ -1,6 +1,6 @@
 # **Brokerboost AI Outbound Recruiter Playbook**
 
-Welcome to Brokerboost AI Outbound Recruiter! This comprehensive playbook will help you maximize results from our fully managed, AI-powered recruiting service. You'll learn how the service works, how to optimize your digital presence, and most importantly, how to effectively follow up with the high-quality recruiting leads we generate for you through automated LinkedIn and email outreach.
+Welcome to Brokerboost AI Outbound Recruiter! This comprehensive playbook will help you maximize results from our fully managed, AI-powered recruiting service. Meet **Laura**—your AI outbound recruiter who works 24/7 to generate high-quality recruiting leads for you through personalized LinkedIn and email outreach. You'll learn how Laura works, how to optimize your digital presence, and most importantly, how to effectively follow up with the leads Laura generates for you.
 
 ---
 
@@ -8,7 +8,7 @@ Welcome to Brokerboost AI Outbound Recruiter! This comprehensive playbook will h
 
 ### **How It Works**
 
-Brokerboost AI Outbound Recruiter is a fully managed, done-for-you recruiting service that combines cutting-edge data enrichment, AI-powered personalization, and multi-channel outreach to generate qualified recruiting conversations for your brokerage.
+**Laura** is your AI outbound recruiter—a fully managed, done-for-you recruiting service that combines cutting-edge data enrichment, AI-powered personalization, and multi-channel outreach to generate qualified recruiting conversations for your brokerage. Laura handles all the heavy lifting of initial outreach so you can focus on what you do best: building relationships and closing deals.
 
 #### **1. Agent Data Sourcing**
 
@@ -36,21 +36,21 @@ Once we've identified your target agents, we enrich their profiles:
 
 #### **4. AI-Powered Multi-Channel Cadence**
 
-Our automated outreach system engages agents across multiple touchpoints:
+Laura engages agents across multiple touchpoints on your behalf:
 
 **LinkedIn Outreach:**
-- **Connection Request:** We send a personalized connection request on your behalf
-- **Automated Follow-Up:** When they accept, we automatically send personalized LinkedIn messages
-- **Ongoing Engagement:** Multi-touch LinkedIn messaging sequence designed to generate responses
+- **Connection Request:** Laura sends a personalized connection request on your behalf
+- **Automated Follow-Up:** When they accept, Laura automatically sends personalized LinkedIn messages
+- **Ongoing Engagement:** Laura runs a multi-touch LinkedIn messaging sequence designed to generate responses
 
 **Email Outreach:**
-- **Personalized Emails:** AI-written emails sent in parallel with LinkedIn outreach
-- **Profile-Based Content:** Messages reference information from their LinkedIn profile
-- **Agent Alert Integration:** For brokerages with Relitix integration, we can reference recent agent alerts (new listings, closings, price changes) to make outreach even more timely and relevant
+- **Personalized Emails:** Laura writes and sends AI-personalized emails in parallel with LinkedIn outreach
+- **Profile-Based Content:** Laura's messages reference information from each agent's LinkedIn profile
+- **Agent Alert Integration:** For brokerages with Relitix integration, Laura can reference recent agent alerts (new listings, closings, price changes) to make outreach even more timely and relevant
 
 #### **5. Personalization at Scale**
 
-Every message is personalized using:
+Laura personalizes every message using:
 - Information from the agent's LinkedIn profile (recent posts, career milestones, shared connections)
 - Their production data and transaction history
 - Recent listing activity and agent alerts (closings, new listings) when Relitix integration is available
@@ -58,17 +58,17 @@ Every message is personalized using:
 
 #### **6. Your Role: The Human Touch**
 
-While we handle the outreach automation, **you bring the relationship-building that closes the deal**:
+While Laura handles the outreach automation, **you bring the relationship-building that closes the deal**:
 
-- **Call Tasks:** When agents engage with our outreach, you'll receive call tasks in Brokerkit to follow up by phone
-- **LinkedIn Conversations:** You'll need to step in and continue conversations when agents respond on LinkedIn
-- **Meeting Setting:** Your goal is to convert interested agents into phone calls or in-person meetings
+- **Call Tasks:** When agents engage with Laura's outreach, you'll receive call tasks in Brokerkit to follow up by phone
+- **LinkedIn Conversations:** You'll need to step in and continue conversations when agents respond to Laura on LinkedIn
+- **Meeting Setting:** Your goal is to convert the interested agents Laura finds into phone calls or in-person meetings
 
 ---
 
 ## **Part 1: Optimizing Your LinkedIn Presence**
 
-When our team sends connection requests and messages on your behalf, prospective agents will inevitably visit your personal and company profiles. A strong, informative, and engaging LinkedIn presence validates our outreach, builds immediate trust, and significantly increases the likelihood of a positive response.
+When Laura sends connection requests and messages on your behalf, prospective agents will inevitably visit your personal and company profiles. A strong, informative, and engaging LinkedIn presence validates Laura's outreach, builds immediate trust, and significantly increases the likelihood of a positive response.
 
 ### **How to Create a LinkedIn Company Page (If you don't have one)**
 
@@ -131,7 +131,7 @@ Ensure your current role at the brokerage is correctly linked to your Company Pa
 
 ## **Part 3: Managing Follow-Up on LinkedIn**
 
-Once an agent accepts your connection request and replies to our initial automated message, it's your turn to step in. Your goal is to build rapport, understand their needs, and guide the conversation toward a meeting. This is a relationship-building process, not a hard sell.
+Once an agent accepts your connection request and replies to Laura's initial automated message, it's your turn to step in. Your goal is to build rapport, understand their needs, and guide the conversation toward a meeting. This is a relationship-building process, not a hard sell.
 
 Here is a step-by-step cadence to follow.
 
@@ -195,7 +195,7 @@ If an agent replies once but then goes quiet, don't give up. They're busy. Here'
 
 ## **Part 4: Handling Your Call Tasks in Brokerkit**
 
-When agents engage with your outreach (opening emails, clicking links, accepting LinkedIn connections, or replying to messages), the AI Outbound Recruiter service generates **call tasks** in your Brokerkit account. These are your hottest leads—agents who have shown interest and are ready for a personal conversation.
+When agents engage with Laura's outreach (opening emails, clicking links, accepting LinkedIn connections, or replying to messages), Laura generates **call tasks** in your Brokerkit account. These are your hottest leads—agents who have shown interest and are ready for a personal conversation.
 
 ### **What Are Call Tasks?**
 
@@ -431,7 +431,7 @@ Once an agent expresses interest, lock down the meeting with confidence:
 
 ## **Part 6: Multi-Channel Follow-Up Strategy**
 
-The AI Outbound Recruiter service reaches agents through LinkedIn and email, but **you control the phone follow-up**. The key to success is coordinating all three channels for maximum impact.
+Laura reaches agents through LinkedIn and email, but **you control the phone follow-up**. The key to success is coordinating all three channels for maximum impact.
 
 ### **When to Use Each Channel**
 
@@ -491,15 +491,15 @@ Stay organized by logging every touchpoint in Brokerkit:
 
 ## **Final Thoughts: Your Recipe for Recruiting Success**
 
-The AI Outbound Recruiter service is powerful, but it's only as effective as your follow-up. Here's your recipe for success:
+Laura is powerful, but she's only as effective as your follow-up. Here's your recipe for success:
 
-1. **Optimize your LinkedIn presence** (Parts 1 & 2) to validate the automated outreach
+1. **Optimize your LinkedIn presence** (Parts 1 & 2) to validate Laura's automated outreach
 2. **Respond quickly to engagement** – same-day follow-up doubles your response rate
 3. **Use the phone** – LinkedIn and email are great for initial contact, but the phone builds real relationships
 4. **Be consultative, not salesy** – position yourself as a resource, not a recruiter
 5. **Stay organized in Brokerkit** – log every interaction and set follow-up tasks religiously
 6. **Play the long game** – not every agent will join today, but staying top-of-mind wins over time
 
-By combining our AI-powered outreach with your authentic relationship-building, you'll create a steady pipeline of high-quality recruiting conversations that grow your brokerage.
+By combining Laura's AI-powered outreach with your authentic relationship-building, you'll create a steady pipeline of high-quality recruiting conversations that grow your brokerage.
 
 Now go get 'em!
