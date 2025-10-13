@@ -503,3 +503,9 @@ Laura is powerful, but she's only as effective as your follow-up. Here's your re
 By combining Laura's AI-powered outreach with your authentic relationship-building, you'll create a steady pipeline of high-quality recruiting conversations that grow your brokerage.
 
 Now go get 'em!
+
+---
+
+**Questions? Need Support?**
+
+Contact the BrokerBoost team at services@brokerkit.com
