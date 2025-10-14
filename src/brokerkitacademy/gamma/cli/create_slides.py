@@ -48,7 +48,7 @@ def create_presentation(
     num_cards: int = 15,
     theme_name: Optional[str] = None,
     format: str = "presentation",
-    image_source: str = "aiGenerated",
+    image_source: str = "unsplash",
     verbose: bool = False,
 ) -> dict:
     """
@@ -61,7 +61,8 @@ def create_presentation(
         num_cards: Number of slides to generate
         theme_name: Theme to use for visual styling
         format: Format type (presentation/document/social)
-        image_source: Image source (aiGenerated/unsplash/giphy)
+        image_source: Image source - unsplash (default, professional stock photos),
+                      aiGenerated, or giphy
         verbose: Print verbose output
 
     Returns:
@@ -77,7 +78,12 @@ def create_presentation(
         if theme_name:
             print(f"   Theme: {theme_name}")
         print(f"   Format: {format}")
-        print(f"   Images: {image_source}")
+        image_desc = {
+            "unsplash": "Professional stock photos from Unsplash",
+            "aiGenerated": "AI-generated images",
+            "giphy": "Animated GIFs from Giphy"
+        }.get(image_source, image_source)
+        print(f"   Images: {image_desc}")
         print()
 
     # Initialize clients
@@ -172,8 +178,8 @@ def main():
         "--image-source",
         type=str,
         choices=["aiGenerated", "unsplash", "giphy"],
-        default="aiGenerated",
-        help="Image source (default: aiGenerated)",
+        default="unsplash",
+        help="Image source (default: unsplash for professional stock photos)",
     )
     parser.add_argument(
         "--list-themes", action="store_true", help="List available themes and exit"

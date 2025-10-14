@@ -8,6 +8,17 @@ $ARGUMENTS
 Therefore, "updating" means we'll **regenerate** the presentation with updated content and
 provide you with a new URL. The metadata will be updated to track the new version.
 
+**API Limits to Consider (We're on Pro Plan):**
+- **Our limit**: Maximum 60 cards per presentation (Pro plan)
+- **Daily limit**: 50 presentations per day (Pro tier)
+- If your updated content exceeds these limits, consider splitting into multiple presentations
+- Note: Ultra accounts have a 75-card limit if we upgrade in the future
+
+**Image Preference:**
+- By default, presentations use professional stock photos from Unsplash
+- This ensures polished, credible visuals for business presentations
+- You can override with `--image-source aiGenerated` if AI images are preferred
+
 **Your Task:**
 
 1. **Identify the Presentation**
@@ -51,7 +62,8 @@ provide you with a new URL. The metadata will be updated to track the new versio
 
    - Run the Python script:
    ```bash
-   python3 scripts/gamma/create_slides.py --file assets/slides/[filename].md --title "[Title]" --num-cards [number] --verbose
+   # Default: Uses professional Unsplash stock photos
+   python3 src/brokerkitacademy/gamma/cli/create_slides.py --file assets/slides/[filename].md --title "[Title]" --num-cards [number] --verbose
    ```
 
 5. **Update Metadata**

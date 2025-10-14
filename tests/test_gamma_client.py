@@ -67,6 +67,93 @@ class TestGammaClient:
         with pytest.raises(GammaAPIError, match="Failed to create presentation"):
             client.create_presentation(input_text="# Test", wait_for_completion=False)
 
+    @patch("brokerkitacademy.gamma.client.requests.post")
+    def test_create_presentation_http_error_with_message(self, mock_post):
+        """Test presentation creation extracts error message from API response"""
+        import requests
+
+        mock_response = Mock()
+        mock_response.json.return_value = {
+            "message": "Input validation errors: 1. numCards exceeds limit",
+            "statusCode": 400
+        }
+        mock_response.status_code = 400
+        mock_response.raise_for_status.side_effect = requests.exceptions.HTTPError(
+            response=mock_response
+        )
+        mock_post.return_value = mock_response
+
+        client = GammaClient(api_key="test-key")
+        with pytest.raises(GammaAPIError, match="Input validation errors"):
+            client.create_presentation(input_text="# Test", wait_for_completion=False)
+
+    @patch("brokerkitacademy.gamma.client.requests.post")
+    def test_create_presentation_validates_payload_no_text_options(self, mock_post):
+        """Test that textOptions is not included in API request"""
+        mock_response = Mock()
+        mock_response.json.return_value = {
+            "generationId": "test-gen-id",
+            "status": "completed",
+            "gammaUrl": "https://gamma.app/docs/test",
+        }
+        mock_response.raise_for_status = Mock()
+        mock_post.return_value = mock_response
+
+        client = GammaClient(api_key="test-key")
+        client.create_presentation(input_text="# Test", num_cards=10, wait_for_completion=False)
+
+        # Verify the API was called with correct payload
+        call_args = mock_post.call_args
+        payload = call_args[1]["json"]
+
+        # Ensure textOptions is NOT in the payload
+        assert "textOptions" not in payload
+        assert "inputText" in payload
+        assert "numCards" in payload
+        assert payload["numCards"] == 10
+
+    def test_create_presentation_validates_empty_input(self):
+        """Test validation rejects empty input_text"""
+        client = GammaClient(api_key="test-key")
+        with pytest.raises(ValueError, match="input_text cannot be empty"):
+            client.create_presentation(input_text="", wait_for_completion=False)
+
+    def test_create_presentation_validates_whitespace_input(self):
+        """Test validation rejects whitespace-only input_text"""
+        client = GammaClient(api_key="test-key")
+        with pytest.raises(ValueError, match="input_text cannot be empty"):
+            client.create_presentation(input_text="   ", wait_for_completion=False)
+
+    def test_create_presentation_validates_invalid_format(self):
+        """Test validation rejects invalid format"""
+        client = GammaClient(api_key="test-key")
+        with pytest.raises(ValueError, match="format must be one of"):
+            client.create_presentation(input_text="# Test", format="invalid", wait_for_completion=False)
+
+    def test_create_presentation_validates_num_cards_too_low(self):
+        """Test validation rejects num_cards less than 1"""
+        client = GammaClient(api_key="test-key")
+        with pytest.raises(ValueError, match="num_cards must be at least 1"):
+            client.create_presentation(input_text="# Test", num_cards=0, wait_for_completion=False)
+
+    def test_create_presentation_validates_num_cards_too_high(self):
+        """Test validation rejects num_cards over 75"""
+        client = GammaClient(api_key="test-key")
+        with pytest.raises(ValueError, match="num_cards cannot exceed 75"):
+            client.create_presentation(input_text="# Test", num_cards=100, wait_for_completion=False)
+
+    def test_create_presentation_validates_invalid_image_source(self):
+        """Test validation rejects invalid image_source"""
+        client = GammaClient(api_key="test-key")
+        with pytest.raises(ValueError, match="image_source must be one of"):
+            client.create_presentation(input_text="# Test", image_source="invalid", wait_for_completion=False)
+
+    def test_create_presentation_validates_invalid_export_format(self):
+        """Test validation rejects invalid export_as"""
+        client = GammaClient(api_key="test-key")
+        with pytest.raises(ValueError, match="export_as must be 'pdf' or 'pptx'"):
+            client.create_presentation(input_text="# Test", export_as="docx", wait_for_completion=False)
+
     @patch("brokerkitacademy.gamma.client.requests.get")
     def test_get_generation_status(self, mock_get):
         """Test getting generation status"""

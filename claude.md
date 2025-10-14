@@ -99,10 +99,52 @@ Gamma.ai is an AI-powered presentation creation platform that enables:
 - Multi-format export options
 
 #### API Access
+- **Current Plan**: Pro (Brokerkit Academy is on Gamma Pro)
 - **Requirements**: Gamma Pro/Ultra/Team/Business account
 - **API Key Format**: `sk-gamma-xxxxxxxx`
-- **Rate Limits**: 50 presentations per day (Pro tier)
+- **Status**: Currently in beta (limits subject to change)
 - **Documentation**: https://help.gamma.app/
+
+#### Image Preferences
+
+**Default: Professional Stock Photos from Unsplash**
+
+We default to Unsplash stock photos for all presentations because they provide:
+- **Professional appearance**: Curated, high-quality photography
+- **Credibility**: Real photos look more trustworthy than AI-generated images
+- **Brand consistency**: Polished visuals that match business standards
+- **Immediate availability**: No AI generation wait time
+
+**Available Image Sources:**
+- **`unsplash`** (default) - Professional stock photography from Unsplash
+- **`aiGenerated`** - AI-generated images (requires specifying image model)
+- **`giphy`** - Animated GIFs for more playful or casual content
+
+**Why we prefer stock photos over AI images:**
+AI-generated images can sometimes look artificial or "uncanny" which may reduce
+the perceived professionalism of business presentations. Stock photos from Unsplash
+provide consistent quality and authenticity that resonates better with our audience
+of real estate brokerages and team leaders.
+
+#### API Limits
+
+**Card/Slide Limits per Request** (by subscription tier):
+- Free: Up to 10 cards per prompt
+- Plus: Up to 20 cards per prompt
+- **Pro (our current plan): Up to 60 cards per prompt**
+- Ultra: Up to 75 cards per prompt
+
+**Rate Limits**:
+- **Pro tier (our current plan): 50 presentations per day** (during beta)
+- Usage-based pricing will be available when API exits beta
+
+**Input Text Limits**:
+- Minimum: 1 token
+- Maximum: 100,000 tokens per request
+
+**Other Constraints**:
+- Themes must be pre-created in Gamma (cannot create themes via API)
+- API only supports creating new presentations (not editing existing ones)
 
 #### MCP Server
 Gamma has Model Context Protocol (MCP) server implementations available:

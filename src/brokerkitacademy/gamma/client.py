@@ -59,9 +59,8 @@ class GammaClient:
         input_text: str,
         format: str = "presentation",
         num_cards: int = 15,
-        text_mode: str = "generate",
         theme_name: Optional[str] = None,
-        image_source: str = "aiGenerated",
+        image_source: str = "unsplash",
         image_model: Optional[str] = None,
         image_style: Optional[str] = None,
         additional_instructions: Optional[str] = None,
@@ -77,10 +76,10 @@ class GammaClient:
             input_text: Content for the presentation (1-100,000 tokens)
             format: "presentation", "document", or "social"
             num_cards: Number of slides/cards (1-60 for Pro, 1-75 for Ultra)
-            text_mode: "generate", "condense", or "preserve"
-            theme_name: Name of the theme to use
-            image_source: "aiGenerated", "unsplash", or "giphy"
-            image_model: Specific AI image model to use
+            theme_name: Name of the theme to use (must be pre-created in Gamma)
+            image_source: Image source - "unsplash" (default, professional stock photos),
+                         "aiGenerated" (requires image_model), or "giphy" (animated GIFs)
+            image_model: Specific AI image model to use (only for aiGenerated source)
             image_style: Visual style for images (e.g., "photorealistic")
             additional_instructions: Extra guidance for content generation
             export_as: Export format ("pdf" or "pptx")
@@ -97,13 +96,33 @@ class GammaClient:
 
         Raises:
             GammaAPIError: If the API request fails
+            ValueError: If input validation fails
         """
+        # Validate inputs
+        if not input_text or not input_text.strip():
+            raise ValueError("input_text cannot be empty")
+
+        valid_formats = ["presentation", "document", "social"]
+        if format not in valid_formats:
+            raise ValueError(f"format must be one of {valid_formats}, got '{format}'")
+
+        if num_cards < 1:
+            raise ValueError(f"num_cards must be at least 1, got {num_cards}")
+        if num_cards > 75:
+            raise ValueError(f"num_cards cannot exceed 75 (Ultra tier limit), got {num_cards}")
+
+        valid_image_sources = ["aiGenerated", "unsplash", "giphy"]
+        if image_source not in valid_image_sources:
+            raise ValueError(f"image_source must be one of {valid_image_sources}, got '{image_source}'")
+
+        if export_as and export_as not in ["pdf", "pptx"]:
+            raise ValueError(f"export_as must be 'pdf' or 'pptx', got '{export_as}'")
+
         # Build request payload
         payload = {
             "inputText": input_text,
             "format": format,
             "numCards": num_cards,
-            "textOptions": {"mode": text_mode},
             "imageOptions": {"source": image_source},
         }
 
@@ -147,6 +166,20 @@ class GammaClient:
                 generation_id, poll_interval=poll_interval, max_wait_time=max_wait_time
             )
 
+        except requests.exceptions.HTTPError as e:
+            # Extract error details from API response
+            error_msg = f"Failed to create presentation: {str(e)}"
+            try:
+                if e.response is not None:
+                    error_body = e.response.json()
+                    if "message" in error_body:
+                        error_msg = f"Failed to create presentation: {error_body['message']}"
+                    else:
+                        error_msg = f"Failed to create presentation: {e.response.text}"
+            except Exception:
+                # If we can't parse the response, use the original error
+                pass
+            raise GammaAPIError(error_msg)
         except requests.exceptions.RequestException as e:
             raise GammaAPIError(f"Failed to create presentation: {str(e)}")
 
