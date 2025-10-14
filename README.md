@@ -34,8 +34,8 @@ python scripts/generate_slides.py --topic "Agent Onboarding Best Practices"
 
 ## What's Inside
 
-- **`docs/`** - Training handouts, call scripts, and guides (markdown format)
-- **`slides/`** - Presentation decks for bootcamps and webinars
+- **`assets/content/`** - Training handouts, call scripts, and guides (markdown format)
+- **`assets/slides/`** - Presentation decks for bootcamps and webinars
 - **`scripts/`** - Python automation for content generation
 - **`.claude/commands/`** - Custom Claude Code commands
 

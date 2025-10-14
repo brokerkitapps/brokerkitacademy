@@ -4,7 +4,7 @@ Gamma Metadata Tracking
 This module manages metadata for Gamma presentations, tracking the relationship
 between local markdown files and their corresponding Gamma presentations.
 
-The metadata is stored in a JSON file at slides/gamma_metadata.json
+The metadata is stored in a JSON file at assets/slides/gamma_metadata.json
 """
 
 import os
@@ -28,12 +28,12 @@ class GammaMetadata:
 
         Args:
             metadata_file: Path to the metadata JSON file.
-                          Defaults to slides/gamma_metadata.json
+                          Defaults to assets/slides/gamma_metadata.json
         """
         if metadata_file is None:
-            # Default to slides/gamma_metadata.json relative to project root
+            # Default to assets/slides/gamma_metadata.json relative to project root
             project_root = Path(__file__).parent.parent.parent
-            self.metadata_file = project_root / "slides" / "gamma_metadata.json"
+            self.metadata_file = project_root / "assets" / "slides" / "gamma_metadata.json"
         else:
             self.metadata_file = Path(metadata_file)
 

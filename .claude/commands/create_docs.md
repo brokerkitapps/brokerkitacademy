@@ -4,7 +4,7 @@ We want to create documentation about:
 $ARGUMENTS
 
 If you want, you can:
-- Explore existing handouts in the `docs/` directory to understand the style and format we use for Brokerkit Academy materials
+- Explore existing handouts in the `assets/content/` directory to understand the style and format we use for Brokerkit Academy materials
 
 - Review `claude.md` for comprehensive information about:
   - Brokerkit platform capabilities and features

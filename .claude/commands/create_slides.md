@@ -7,7 +7,7 @@ $ARGUMENTS
 
 1. **Understand the Request**
    - If the user provided a topic/idea, you'll need to generate the content
-   - If the user referenced an existing file (e.g., `slides/filename.md`), read that file
+   - If the user referenced an existing file (e.g., `assets/slides/filename.md`), read that file
    - If unclear, ask the user for clarification
 
 2. **Generate Content (if needed)**
@@ -31,8 +31,8 @@ $ARGUMENTS
      - Suggested visual elements (e.g., "screenshot of dashboard here")
 
 3. **Save Content Locally**
-   - Save the markdown content to `slides/` directory
-   - Use a descriptive filename (e.g., `slides/agent-recruiting-strategies-q1.md`)
+   - Save the markdown content to `assets/slides/` directory
+   - Use a descriptive filename (e.g., `assets/slides/agent-recruiting-strategies-q1.md`)
    - Ensure the content is well-formatted and ready for Gamma to process
 
 4. **Determine Presentation Parameters**
@@ -47,12 +47,12 @@ $ARGUMENTS
 5. **Create Gamma Presentation**
    - Run the Python script using:
    ```bash
-   python3 scripts/gamma/create_slides.py --file slides/[filename].md --title "[Title]" --num-cards [number] --verbose
+   python3 scripts/gamma/create_slides.py --file assets/slides/[filename].md --title "[Title]" --num-cards [number] --verbose
    ```
    - Optional: Add `--theme [theme-name]` if you want a specific theme
    - The script will:
      - Create the presentation in Gamma using AI
-     - Track metadata in `slides/gamma_metadata.json`
+     - Track metadata in `assets/slides/gamma_metadata.json`
      - Return the Gamma URL
 
 6. **Present Results to User**
@@ -74,7 +74,7 @@ $ARGUMENTS
   - Theme-based color schemes
 - After creation, the user can edit the presentation in Gamma's web interface
 - The local markdown file serves as version control for the content
-- All presentations are tracked in `slides/gamma_metadata.json`
+- All presentations are tracked in `assets/slides/gamma_metadata.json`
 
 **Example Workflow:**
 
@@ -85,15 +85,15 @@ Claude: I'll create a comprehensive presentation about agent recruiting strategi
 
 [Generates markdown content covering recruiting strategies]
 
-[Saves to slides/agent-recruiting-strategies-q1-2025.md]
+[Saves to assets/slides/agent-recruiting-strategies-q1-2025.md]
 
-[Runs: python3 scripts/gamma/create_slides.py --file slides/agent-recruiting-strategies-q1-2025.md --title "Agent Recruiting Strategies Q1 2025" --num-cards 20 --verbose]
+[Runs: python3 scripts/gamma/create_slides.py --file assets/slides/agent-recruiting-strategies-q1-2025.md --title "Agent Recruiting Strategies Q1 2025" --num-cards 20 --verbose]
 
 ✅ Presentation created successfully!
 
 📊 Title: Agent Recruiting Strategies Q1 2025
 🎴 Cards: 20 slides
-📄 Local File: slides/agent-recruiting-strategies-q1-2025.md
+📄 Local File: assets/slides/agent-recruiting-strategies-q1-2025.md
 
 🔗 View your presentation:
    https://gamma.app/docs/xxxxxxxxxx

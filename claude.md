@@ -63,13 +63,13 @@ Our recruiting lead generation offering featuring:
 
 This repository supports creation of:
 
-1. **Handouts and Guides** (stored in `docs/`)
+1. **Handouts and Guides** (stored in `assets/content/`)
    - Call scripts for recruiter-agent conversations
    - Quick reference cards
    - Checklists and workflows
    - Best practice guides
 
-2. **Presentation Slides** (stored in `slides/`)
+2. **Presentation Slides** (stored in `assets/slides/`)
    - Bootcamp presentations
    - Webinar decks
    - Training modules
@@ -119,7 +119,7 @@ brokerkitacademy/
 │   └── commands/          # Custom Claude slash commands
 ├── docs/                  # Markdown handouts and guides
 ├── scripts/               # Python automation scripts
-├── slides/                # Gamma slide deck content
+├── assets/slides/                # Gamma slide deck content
 ├── tmp/                   # Temporary working files
 ├── .env                   # API credentials (not committed)
 ├── .gitignore            # Git ignore patterns
@@ -181,14 +181,14 @@ git push origin main
 5. **Start creating content**:
    - Use Claude slash commands in `.claude/commands/`
    - Run Python scripts in `scripts/`
-   - Store handouts in `docs/`
-   - Store presentations in `slides/`
+   - Store handouts in `assets/content/`
+   - Store presentations in `assets/slides/`
 
 ## Development Workflow
 
 ### Creating Handouts
 1. Draft content in markdown format
-2. Store in `docs/` directory
+2. Store in `assets/content/` directory
 3. Import into Google Docs for final formatting
 4. Share with Academy participants
 
@@ -196,7 +196,7 @@ git push origin main
 1. Use Claude slash command `/create_academy_content`
 2. Generate content using Gamma API via Python scripts
 3. Review and refine in Gamma web interface
-4. Export and store in `slides/` directory
+4. Export and store in `assets/slides/` directory
 
 ### Version Control
 - Commit markdown files and scripts to Git

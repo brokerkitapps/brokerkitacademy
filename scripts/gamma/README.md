@@ -43,7 +43,7 @@ Command-line script for creating Gamma presentations:
 ```bash
 # Create from file
 python3 scripts/gamma/create_slides.py \
-  --file slides/my-presentation.md \
+  --file assets/slides/my-presentation.md \
   --title "My Presentation" \
   --num-cards 20 \
   --verbose
@@ -59,7 +59,7 @@ python3 scripts/gamma/create_slides.py --list-themes
 
 # Use specific theme
 python3 scripts/gamma/create_slides.py \
-  --file slides/my-presentation.md \
+  --file assets/slides/my-presentation.md \
   --title "Styled Presentation" \
   --theme "Berlin" \
   --num-cards 15 \
@@ -86,22 +86,22 @@ Create a new Gamma presentation from an idea or existing content.
 
 ```
 /create_slides Agent recruiting strategies for Q1 2025
-/create_slides slides/existing-content.md
+/create_slides assets/slides/existing-content.md
 ```
 
 The command will:
 1. Generate content if you provide an idea
 2. Or use existing markdown file if provided
-3. Save content to `slides/` directory
+3. Save content to `assets/slides/` directory
 4. Create presentation in Gamma via API
-5. Track metadata in `slides/gamma_metadata.json`
+5. Track metadata in `assets/slides/gamma_metadata.json`
 6. Return the Gamma URL
 
 ### `/update_slides`
 Update an existing presentation (regenerates with new content).
 
 ```
-/update_slides slides/agent-recruiting-q1-2025.md - add social media section
+/update_slides assets/slides/agent-recruiting-q1-2025.md - add social media section
 /update_slides https://gamma.app/docs/xxxxxxxxxx - update statistics
 ```
 
@@ -116,14 +116,14 @@ The command will:
 
 ## Metadata Tracking
 
-All presentations are tracked in `slides/gamma_metadata.json`:
+All presentations are tracked in `assets/slides/gamma_metadata.json`:
 
 ```json
 {
   "presentations": [
     {
       "id": "agent-recruiting-q1-2025",
-      "local_file": "slides/agent-recruiting-q1-2025.md",
+      "local_file": "assets/slides/agent-recruiting-q1-2025.md",
       "gamma_id": "XXXXXXXXXXX",
       "gamma_url": "https://gamma.app/docs/yyyyyyyyyy",
       "created_at": "2025-10-13T10:30:00Z",
@@ -180,7 +180,7 @@ result = client.create_presentation(
 
 # Save metadata
 metadata.add_presentation(
-    local_file="slides/agent-recruiting.md",
+    local_file="assets/slides/agent-recruiting.md",
     gamma_id=result["generationId"],
     gamma_url=result["gammaUrl"],
     title="Agent Recruiting Strategies",
@@ -197,7 +197,7 @@ print(f"Created: {result['gammaUrl']}")
 from scripts.gamma.gamma_metadata import find_presentation_quick
 
 # Find by file path
-pres = find_presentation_quick("slides/agent-recruiting.md")
+pres = find_presentation_quick("assets/slides/agent-recruiting.md")
 
 # Find by URL
 pres = find_presentation_quick("https://gamma.app/docs/xxxxxxxxxx")
@@ -243,15 +243,15 @@ Gamma's AI automatically:
 ### Creating from Scratch
 
 1. Define your content in markdown
-2. Save to `slides/my-presentation.md`
-3. Run `/create_slides slides/my-presentation.md`
+2. Save to `assets/slides/my-presentation.md`
+3. Run `/create_slides assets/slides/my-presentation.md`
 4. Get Gamma URL instantly
 5. Edit further in Gamma web interface if needed
 
 ### Updating Existing
 
 1. Edit your local markdown file
-2. Run `/update_slides slides/my-presentation.md`
+2. Run `/update_slides assets/slides/my-presentation.md`
 3. Get new Gamma URL with updated content
 4. Metadata tracks both versions
 
@@ -338,7 +338,7 @@ Errors are raised as `GammaAPIError` exceptions with descriptive messages.
 - Use `--verbose` flag for detailed error messages
 
 ### Metadata Issues
-- Check `slides/gamma_metadata.json` exists
+- Check `assets/slides/gamma_metadata.json` exists
 - Ensure file has proper JSON formatting
 - Fix by deleting and regenerating if corrupted
 

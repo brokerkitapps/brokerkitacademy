@@ -4,7 +4,7 @@ We want to create a webinar about:
 $ARGUMENTS
 
 If you want, you can:
-- Explore existing webinar content in the `slides/` directory to understand the style and format we use for Brokerkit Academy webinars
+- Explore existing webinar content in the `assets/slides/` directory to understand the style and format we use for Brokerkit Academy webinars
 
 - Review `claude.md` for comprehensive information about:
   - Brokerkit platform capabilities and features

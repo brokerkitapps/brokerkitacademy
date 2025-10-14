@@ -4,7 +4,7 @@ We want to create bootcamp training about:
 $ARGUMENTS
 
 If you want, you can:
-- Explore existing bootcamp content in the `slides/` directory to understand the style and format we use for Customer Bootcamp sessions
+- Explore existing bootcamp content in the `assets/slides/` directory to understand the style and format we use for Customer Bootcamp sessions
 
 - Review `claude.md` for comprehensive information about:
   - Brokerkit platform capabilities and features

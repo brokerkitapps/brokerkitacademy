@@ -22,13 +22,13 @@ A complete Python-based system for creating and managing Gamma presentations via
 
 This will:
 - Generate comprehensive markdown content
-- Save it to `slides/agent-recruiting-strategies-q1-2025.md`
+- Save it to `assets/slides/agent-recruiting-strategies-q1-2025.md`
 - Create presentation in Gamma with AI-enhanced visuals
 - Return the Gamma URL to view
 
 #### Update an existing presentation:
 ```
-/update_slides slides/agent-recruiting-strategies-q1-2025.md - add social media section
+/update_slides assets/slides/agent-recruiting-strategies-q1-2025.md - add social media section
 ```
 
 This will:
@@ -42,7 +42,7 @@ This will:
 #### Create from a markdown file:
 ```bash
 python3 scripts/gamma/create_slides.py \
-  --file slides/my-presentation.md \
+  --file assets/slides/my-presentation.md \
   --title "My Presentation" \
   --num-cards 20 \
   --verbose
@@ -64,7 +64,7 @@ python3 scripts/gamma/create_slides.py --list-themes
 #### Use a specific theme:
 ```bash
 python3 scripts/gamma/create_slides.py \
-  --file slides/my-presentation.md \
+  --file assets/slides/my-presentation.md \
   --title "Styled Presentation" \
   --theme "Berlin" \
   --num-cards 15
@@ -94,16 +94,16 @@ python3 scripts/gamma/view_metadata.py --search "recruiting"
 
 **What Happens:**
 1. Claude generates comprehensive content about Relitix
-2. Content saved to `slides/relitix-agent-recruiting-webinar.md`
+2. Content saved to `assets/slides/relitix-agent-recruiting-webinar.md`
 3. Python script creates Gamma presentation
-4. Metadata tracked in `slides/gamma_metadata.json`
+4. Metadata tracked in `assets/slides/gamma_metadata.json`
 5. You get the Gamma URL: `https://gamma.app/docs/xxxxxxxxxx`
 
 ### Example 2: Use Existing Content
 
 **User Request:**
 ```
-/create_slides slides/customer-bootcamp-session-1.md
+/create_slides assets/slides/customer-bootcamp-session-1.md
 ```
 
 **What Happens:**
@@ -117,7 +117,7 @@ python3 scripts/gamma/view_metadata.py --search "recruiting"
 
 **User Request:**
 ```
-/update_slides slides/agent-recruiting.md - update statistics to Q4 2025 data
+/update_slides assets/slides/agent-recruiting.md - update statistics to Q4 2025 data
 ```
 
 **What Happens:**
@@ -147,7 +147,7 @@ brokerkitacademy/
 │   ├── create_slides.md             # /create_slides command
 │   └── update_slides.md             # /update_slides command
 │
-├── slides/
+├── assets/slides/
 │   ├── gamma_metadata.json          # Metadata database
 │   ├── example-presentation-template.md
 │   └── [your slide markdown files]
@@ -237,7 +237,7 @@ Your markdown content provides the structure and information. Gamma makes it bea
 
 ### "File not found"
 - Use absolute paths or paths relative to project root
-- Check file exists with `ls slides/`
+- Check file exists with `ls assets/slides/`
 
 ### Script won't run
 - Ensure Python 3.8+ installed: `python3 --version`
@@ -245,7 +245,7 @@ Your markdown content provides the structure and information. Gamma makes it bea
 - Make script executable: `chmod +x scripts/gamma/create_slides.py`
 
 ### Metadata issues
-- Check `slides/gamma_metadata.json` is valid JSON
+- Check `assets/slides/gamma_metadata.json` is valid JSON
 - Regenerate if corrupted: Delete file and recreate presentations
 
 ## API Limits and Features
@@ -281,7 +281,7 @@ Your markdown content provides the structure and information. Gamma makes it bea
 
 4. **Read full docs:**
    - See `scripts/gamma/README.md` for complete documentation
-   - Check `slides/example-presentation-template.md` for content examples
+   - Check `assets/slides/example-presentation-template.md` for content examples
 
 ## Support
 

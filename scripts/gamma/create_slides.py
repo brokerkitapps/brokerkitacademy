@@ -6,7 +6,7 @@ This script creates Gamma presentations from markdown content.
 It handles API interaction, metadata tracking, and returns the Gamma URL.
 
 Usage:
-    python create_slides.py --file slides/my-presentation.md --title "My Presentation"
+    python create_slides.py --file assets/slides/my-presentation.md --title "My Presentation"
     python create_slides.py --text "Create a presentation about..." --title "Quick Deck"
 """
 

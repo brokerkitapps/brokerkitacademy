@@ -1,0 +1,81 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "brokerkitacademy"
+version = "1.0.0"
+description = "Training content creation tools for Brokerkit Academy"
+readme = "README.md"
+authors = [
+    {name = "Brokerkit Team", email = "team@brokerkit.com"}
+]
+requires-python = ">=3.8"
+license = {text = "Proprietary"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Internal",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "requests>=2.31.0",
+    "python-dotenv>=1.0.0",
+    "markdown>=3.5.0",
+    "PyYAML>=6.0.1",
+    "jsonschema>=4.19.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "black>=23.9.0",
+    "flake8>=6.1.0",
+    "mypy>=1.5.0",
+]
+
+[project.scripts]
+create-gamma-slides = "brokerkitacademy.gamma.cli.create_slides:main"
+view-gamma-metadata = "brokerkitacademy.gamma.cli.view_metadata:main"
+
+[project.urls]
+Repository = "https://github.com/brokerkitapps/brokerkitacademy"
+Issues = "https://github.com/brokerkitapps/brokerkitacademy/issues"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | venv
+  | build
+  | dist
+  | __pycache__
+)/
+'''
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+exclude = [".git", "__pycache__", "build", "dist", ".venv", "venv"]

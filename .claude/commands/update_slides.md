@@ -12,11 +12,11 @@ provide you with a new URL. The metadata will be updated to track the new versio
 
 1. **Identify the Presentation**
    - User may provide:
-     - Local file path (e.g., `slides/agent-recruiting-q1.md`)
+     - Local file path (e.g., `assets/slides/agent-recruiting-q1.md`)
      - Gamma URL (e.g., `https://gamma.app/docs/xxxxxxxxxx`)
      - Presentation title or partial title
 
-   - Look up the presentation in `slides/gamma_metadata.json` to find:
+   - Look up the presentation in `assets/slides/gamma_metadata.json` to find:
      - The corresponding local file
      - Current Gamma URL
      - Existing metadata
@@ -51,12 +51,12 @@ provide you with a new URL. The metadata will be updated to track the new versio
 
    - Run the Python script:
    ```bash
-   python3 scripts/gamma/create_slides.py --file slides/[filename].md --title "[Title]" --num-cards [number] --verbose
+   python3 scripts/gamma/create_slides.py --file assets/slides/[filename].md --title "[Title]" --num-cards [number] --verbose
    ```
 
 5. **Update Metadata**
    - The script will automatically add the new presentation to metadata
-   - Manually note in `slides/gamma_metadata.json` that this is an updated version
+   - Manually note in `assets/slides/gamma_metadata.json` that this is an updated version
    - Keep track of both the old and new Gamma URLs for reference
 
 6. **Present Results to User**
@@ -70,11 +70,11 @@ provide you with a new URL. The metadata will be updated to track the new versio
 **Example Workflow:**
 
 ```
-User: /update_slides slides/agent-recruiting-q1-2025.md - add a section about social media recruiting
+User: /update_slides assets/slides/agent-recruiting-q1-2025.md - add a section about social media recruiting
 
 Claude: I'll update the agent recruiting presentation to add social media recruiting content.
 
-[Reads current file: slides/agent-recruiting-q1-2025.md]
+[Reads current file: assets/slides/agent-recruiting-q1-2025.md]
 
 Current structure:
 - Introduction to Agent Recruiting
@@ -91,15 +91,15 @@ Current structure:
 - Social Media Recruiting Strategies (NEW)
 - Best Practices and Tips
 
-✅ Content updated in slides/agent-recruiting-q1-2025.md
+✅ Content updated in assets/slides/agent-recruiting-q1-2025.md
 
-[Runs: python3 scripts/gamma/create_slides.py --file slides/agent-recruiting-q1-2025.md --title "Agent Recruiting Strategies Q1 2025" --num-cards 22 --verbose]
+[Runs: python3 scripts/gamma/create_slides.py --file assets/slides/agent-recruiting-q1-2025.md --title "Agent Recruiting Strategies Q1 2025" --num-cards 22 --verbose]
 
 🎉 Presentation regenerated successfully!
 
 📊 Title: Agent Recruiting Strategies Q1 2025
 🎴 Cards: 22 slides (increased from 20)
-📄 Local File: slides/agent-recruiting-q1-2025.md ✨ UPDATED
+📄 Local File: assets/slides/agent-recruiting-q1-2025.md ✨ UPDATED
 
 🔗 NEW Presentation URL:
    https://gamma.app/docs/yyyyyyyyyy
@@ -137,8 +137,8 @@ User: /update_slides https://gamma.app/docs/xxxxxxxxxx - update the statistics
 
 Claude: Let me look up that presentation in our metadata...
 
-[Searches slides/gamma_metadata.json for the URL]
-Found: slides/agent-recruiting-q1-2025.md
+[Searches assets/slides/gamma_metadata.json for the URL]
+Found: assets/slides/agent-recruiting-q1-2025.md
 
 [Reads the file and proceeds with updates]
 ```
