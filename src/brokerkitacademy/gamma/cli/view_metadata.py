@@ -15,10 +15,7 @@ import argparse
 from pathlib import Path
 from typing import Optional
 
-# Add parent directory to path
-sys.path.insert(0, str(Path(__file__).parent))
-
-from gamma_metadata import GammaMetadata
+from brokerkitacademy.gamma.metadata import GammaMetadata
 
 
 def format_presentation(pres: dict, index: int) -> str:

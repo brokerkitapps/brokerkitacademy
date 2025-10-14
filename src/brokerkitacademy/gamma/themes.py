@@ -8,7 +8,7 @@ Themes control the visual appearance of generated presentations.
 import json
 from pathlib import Path
 from typing import List, Dict, Optional, Any
-from .gamma_client import GammaClient, GammaAPIError
+from .client import GammaClient, GammaAPIError
 
 
 class ThemeManager:

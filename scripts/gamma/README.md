@@ -1,5 +1,20 @@
 # Gamma API Integration
 
+> **⚠️ LOCATION CHANGE**: The Gamma API integration has moved to a proper Python package structure.
+>
+> **Old location**: `scripts/gamma/` (deprecated)
+> **New location**: `src/brokerkitacademy/gamma/`
+>
+> **Please update your imports:**
+> - ❌ Old: `from scripts.gamma.gamma_client import GammaClient`
+> - ✅ New: `from brokerkitacademy.gamma import GammaClient`
+>
+> **Installation**: Run `pip install -e .` from the project root to install the package.
+>
+> This README remains here for reference but reflects the new import paths.
+
+---
+
 Python scripts and utilities for creating and managing Gamma presentations via the Gamma Generate API.
 
 ## Overview
@@ -148,7 +163,7 @@ This enables:
 ### Quick Example
 
 ```python
-from scripts.gamma.gamma_client import create_quick_presentation
+from brokerkitacademy.gamma import create_quick_presentation
 
 # Create a presentation and get the URL
 url = create_quick_presentation(
@@ -161,8 +176,7 @@ print(f"View presentation: {url}")
 ### Full Example
 
 ```python
-from scripts.gamma.gamma_client import GammaClient
-from scripts.gamma.gamma_metadata import GammaMetadata
+from brokerkitacademy.gamma import GammaClient, GammaMetadata
 
 # Initialize clients
 client = GammaClient()
@@ -194,7 +208,7 @@ print(f"Created: {result['gammaUrl']}")
 ### Find Presentations
 
 ```python
-from scripts.gamma.gamma_metadata import find_presentation_quick
+from brokerkitacademy.gamma import find_presentation_quick
 
 # Find by file path
 pres = find_presentation_quick("assets/slides/agent-recruiting.md")

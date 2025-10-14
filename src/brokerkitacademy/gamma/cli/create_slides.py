@@ -15,12 +15,9 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-# Add parent directory to path to import local modules
-sys.path.insert(0, str(Path(__file__).parent))
-
-from gamma_client import GammaClient, GammaAPIError
-from gamma_metadata import GammaMetadata
-from gamma_themes import ThemeManager
+from brokerkitacademy.gamma.client import GammaClient, GammaAPIError
+from brokerkitacademy.gamma.metadata import GammaMetadata
+from brokerkitacademy.gamma.themes import ThemeManager
 
 
 def read_file_content(file_path: str) -> str:

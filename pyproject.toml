@@ -46,6 +46,12 @@ view-gamma-metadata = "brokerkitacademy.gamma.cli.view_metadata:main"
 Repository = "https://github.com/brokerkitapps/brokerkitacademy"
 Issues = "https://github.com/brokerkitapps/brokerkitacademy/issues"
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+brokerkitacademy = ["py.typed"]
+
 [tool.black]
 line-length = 88
 target-version = ['py38']

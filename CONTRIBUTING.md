@@ -175,7 +175,7 @@ def process_slides(
 **Test Example**:
 ```python
 import pytest
-from scripts.gamma.gamma_client import GammaClient, GammaAPIError
+from brokerkitacademy.gamma.client import GammaClient, GammaAPIError
 
 def test_create_presentation_success():
     """Test successful presentation creation."""
