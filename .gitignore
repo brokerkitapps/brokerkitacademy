@@ -38,8 +38,7 @@ wheels/
 .DS_Store
 
 # Temporary files
-tmp/*
-!tmp/.gitkeep
+tmp/
 *.tmp
 *.bak
 
