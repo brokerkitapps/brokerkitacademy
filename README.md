@@ -15,21 +15,27 @@ cd brokerkitacademy
 python3 -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
-# Install dependencies
+# Install dependencies and package
 pip install -r requirements.txt
+pip install -e .
 
 # Configure API credentials
-# Edit .env file and add your Gamma API key
+# Copy .env.example to .env and add your Gamma API key
+cp .env.example .env
+# Edit .env file and add your GAMMA_API_KEY
 ```
 
 ### Create Your First Content
 
 ```bash
-# Use Claude Code with the custom slash command
-/create_academy_content agent recruiting call script
+# Use Claude Code with custom slash commands
+/create_slides agent recruiting call script
 
-# Or run Python scripts directly
-python scripts/generate_slides.py --topic "Agent Onboarding Best Practices"
+# Or use the installed CLI tools directly
+create-gamma-slides --text "Agent Onboarding Best Practices" --title "Agent Onboarding" --num-cards 15
+
+# Or use Python imports
+python -c "from brokerkitacademy.gamma import create_quick_presentation; print(create_quick_presentation('# My Presentation', 15))"
 ```
 
 ## What's Inside

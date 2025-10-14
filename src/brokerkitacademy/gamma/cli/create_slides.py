@@ -37,7 +37,7 @@ def read_file_content(file_path: str) -> str:
     if not path.exists():
         raise FileNotFoundError(f"File not found: {file_path}")
 
-    with open(path, 'r', encoding='utf-8') as f:
+    with open(path, "r", encoding="utf-8") as f:
         return f.read()
 
 
@@ -49,7 +49,7 @@ def create_presentation(
     theme_name: Optional[str] = None,
     format: str = "presentation",
     image_source: str = "aiGenerated",
-    verbose: bool = False
+    verbose: bool = False,
 ) -> dict:
     """
     Create a Gamma presentation and track metadata.
@@ -94,7 +94,7 @@ def create_presentation(
         num_cards=num_cards,
         theme_name=theme_name,
         image_source=image_source,
-        wait_for_completion=True
+        wait_for_completion=True,
     )
 
     gamma_id = result.get("generationId")
@@ -116,7 +116,7 @@ def create_presentation(
             title=title,
             format=format,
             num_cards=num_cards,
-            theme_name=theme_name
+            theme_name=theme_name,
         )
 
         if verbose:
@@ -129,7 +129,7 @@ def create_presentation(
         "gamma_url": gamma_url,
         "title": title,
         "num_cards": num_cards,
-        "local_file": local_file
+        "local_file": local_file,
     }
 
 
@@ -142,22 +142,15 @@ def main():
     # Input source (mutually exclusive)
     input_group = parser.add_mutually_exclusive_group(required=True)
     input_group.add_argument(
-        "--file",
-        type=str,
-        help="Path to markdown file with presentation content"
+        "--file", type=str, help="Path to markdown file with presentation content"
     )
     input_group.add_argument(
-        "--text",
-        type=str,
-        help="Inline text content for presentation"
+        "--text", type=str, help="Inline text content for presentation"
     )
 
     # Required arguments
     parser.add_argument(
-        "--title",
-        type=str,
-        required=True,
-        help="Title for the presentation"
+        "--title", type=str, required=True, help="Title for the presentation"
     )
 
     # Optional arguments
@@ -165,37 +158,27 @@ def main():
         "--num-cards",
         type=int,
         default=15,
-        help="Number of slides to generate (default: 15)"
+        help="Number of slides to generate (default: 15)",
     )
-    parser.add_argument(
-        "--theme",
-        type=str,
-        help="Theme name for visual styling"
-    )
+    parser.add_argument("--theme", type=str, help="Theme name for visual styling")
     parser.add_argument(
         "--format",
         type=str,
         choices=["presentation", "document", "social"],
         default="presentation",
-        help="Format type (default: presentation)"
+        help="Format type (default: presentation)",
     )
     parser.add_argument(
         "--image-source",
         type=str,
         choices=["aiGenerated", "unsplash", "giphy"],
         default="aiGenerated",
-        help="Image source (default: aiGenerated)"
+        help="Image source (default: aiGenerated)",
     )
     parser.add_argument(
-        "--list-themes",
-        action="store_true",
-        help="List available themes and exit"
+        "--list-themes", action="store_true", help="List available themes and exit"
     )
-    parser.add_argument(
-        "--verbose",
-        action="store_true",
-        help="Print verbose output"
-    )
+    parser.add_argument("--verbose", action="store_true", help="Print verbose output")
 
     args = parser.parse_args()
 
@@ -223,7 +206,7 @@ def main():
             theme_name=args.theme,
             format=args.format,
             image_source=args.image_source,
-            verbose=args.verbose
+            verbose=args.verbose,
         )
 
         # Output the URL
@@ -252,6 +235,7 @@ def main():
         print(f"❌ Unexpected error: {e}", file=sys.stderr)
         if args.verbose:
             import traceback
+
             traceback.print_exc()
         return 1
 

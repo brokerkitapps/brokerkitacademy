@@ -19,6 +19,7 @@ load_dotenv()
 
 class GammaAPIError(Exception):
     """Custom exception for Gamma API errors"""
+
     pass
 
 
@@ -51,10 +52,7 @@ class GammaClient:
 
     def _get_headers(self) -> Dict[str, str]:
         """Get HTTP headers for API requests"""
-        return {
-            "X-API-KEY": self.api_key,
-            "Content-Type": "application/json"
-        }
+        return {"X-API-KEY": self.api_key, "Content-Type": "application/json"}
 
     def create_presentation(
         self,
@@ -70,7 +68,7 @@ class GammaClient:
         export_as: Optional[str] = None,
         wait_for_completion: bool = True,
         poll_interval: int = 5,
-        max_wait_time: int = 300
+        max_wait_time: int = 300,
     ) -> Dict[str, Any]:
         """
         Create a new Gamma presentation.
@@ -105,12 +103,8 @@ class GammaClient:
             "inputText": input_text,
             "format": format,
             "numCards": num_cards,
-            "textOptions": {
-                "mode": text_mode
-            },
-            "imageOptions": {
-                "source": image_source
-            }
+            "textOptions": {"mode": text_mode},
+            "imageOptions": {"source": image_source},
         }
 
         # Add optional parameters
@@ -135,7 +129,7 @@ class GammaClient:
                 f"{self.BASE_URL}/generations",
                 headers=self._get_headers(),
                 json=payload,
-                timeout=30
+                timeout=30,
             )
             response.raise_for_status()
             result = response.json()
@@ -150,9 +144,7 @@ class GammaClient:
 
             # Poll for completion
             return self._poll_until_complete(
-                generation_id,
-                poll_interval=poll_interval,
-                max_wait_time=max_wait_time
+                generation_id, poll_interval=poll_interval, max_wait_time=max_wait_time
             )
 
         except requests.exceptions.RequestException as e:
@@ -179,7 +171,7 @@ class GammaClient:
             response = requests.get(
                 f"{self.BASE_URL}/generations/{generation_id}",
                 headers=self._get_headers(),
-                timeout=30
+                timeout=30,
             )
             response.raise_for_status()
             return response.json()
@@ -188,10 +180,7 @@ class GammaClient:
             raise GammaAPIError(f"Failed to get generation status: {str(e)}")
 
     def _poll_until_complete(
-        self,
-        generation_id: str,
-        poll_interval: int = 5,
-        max_wait_time: int = 300
+        self, generation_id: str, poll_interval: int = 5, max_wait_time: int = 300
     ) -> Dict[str, Any]:
         """
         Poll the generation status until completion or timeout.
@@ -244,9 +233,7 @@ class GammaClient:
         """
         try:
             response = requests.get(
-                f"{self.BASE_URL}/themes",
-                headers=self._get_headers(),
-                timeout=30
+                f"{self.BASE_URL}/themes", headers=self._get_headers(), timeout=30
             )
             response.raise_for_status()
             return response.json()
@@ -256,11 +243,7 @@ class GammaClient:
 
 
 # Convenience function for quick presentation creation
-def create_quick_presentation(
-    input_text: str,
-    num_cards: int = 15,
-    **kwargs
-) -> str:
+def create_quick_presentation(input_text: str, num_cards: int = 15, **kwargs) -> str:
     """
     Quickly create a presentation and return its URL.
 
@@ -277,9 +260,7 @@ def create_quick_presentation(
     """
     client = GammaClient()
     result = client.create_presentation(
-        input_text=input_text,
-        num_cards=num_cards,
-        **kwargs
+        input_text=input_text, num_cards=num_cards, **kwargs
     )
 
     gamma_url = result.get("gammaUrl")

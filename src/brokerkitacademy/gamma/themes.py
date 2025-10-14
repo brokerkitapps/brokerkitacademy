@@ -50,7 +50,7 @@ class ThemeManager:
         # Try to load from cache first
         if use_cache and self.cache_file.exists():
             try:
-                with open(self.cache_file, 'r') as f:
+                with open(self.cache_file, "r") as f:
                     cached_data = json.load(f)
                     return cached_data.get("themes", [])
             except (json.JSONDecodeError, IOError):
@@ -71,7 +71,7 @@ class ThemeManager:
             # If API fails and we have cache, use it
             if self.cache_file.exists():
                 try:
-                    with open(self.cache_file, 'r') as f:
+                    with open(self.cache_file, "r") as f:
                         cached_data = json.load(f)
                         return cached_data.get("themes", [])
                 except (json.JSONDecodeError, IOError):
@@ -84,10 +84,10 @@ class ThemeManager:
         """Save themes to cache file"""
         cache_data = {
             "themes": themes,
-            "cached_at": None  # Could add timestamp if needed
+            "cached_at": None,  # Could add timestamp if needed
         }
 
-        with open(self.cache_file, 'w') as f:
+        with open(self.cache_file, "w") as f:
             json.dump(cache_data, f, indent=2)
 
     def _get_default_themes(self) -> List[Dict[str, Any]]:
@@ -126,7 +126,9 @@ class ThemeManager:
         themes = self.get_themes(use_cache=use_cache)
         return [theme.get("name", "") for theme in themes if theme.get("name")]
 
-    def find_theme(self, theme_name: str, use_cache: bool = True) -> Optional[Dict[str, Any]]:
+    def find_theme(
+        self, theme_name: str, use_cache: bool = True
+    ) -> Optional[Dict[str, Any]]:
         """
         Find a theme by name (case-insensitive).
 

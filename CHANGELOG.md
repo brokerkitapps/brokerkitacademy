@@ -43,11 +43,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Path resolution issues in metadata tracking
 - File reference consistency across documentation
 
+## [1.0.1] - 2025-10-13
+
+### Added
+- Comprehensive test suite with pytest fixtures
+  - Unit tests for GammaClient with mocking
+  - Unit tests for GammaMetadata tracking
+  - Unit tests for ThemeManager
+  - Shared fixtures in conftest.py
+- `.env.example` template file for new developers
+- `py.typed` marker file for PEP 561 type checking support
+- `MANIFEST.in` for proper packaging of non-Python files
+- `mypy` to requirements.txt for type checking consistency
+
+### Changed
+- Updated README.md with correct installation steps
+- Updated README.md with accurate CLI command examples
+- Synced requirements.txt with pyproject.toml dependencies
+
+### Removed
+- Deprecated `scripts/gamma/` directory (all code now in `src/`)
+- Old scripts directory structure completely cleaned up
+
+### Fixed
+- Package now properly installed in editable mode
+- CLI tools (`create-gamma-slides`, `view-gamma-metadata`) verified working
+- Python imports verified functional
+- Type checking configuration completed
+
 ## [Unreleased]
 
 ### Planned
-- src/ layout for better Python package structure
-- Comprehensive test suite
 - Pre-commit hooks for automated quality checks
 - CI/CD pipeline for automated testing
 - Additional slash commands for content types

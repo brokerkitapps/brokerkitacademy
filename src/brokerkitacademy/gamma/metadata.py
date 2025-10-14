@@ -7,7 +7,6 @@ between local markdown files and their corresponding Gamma presentations.
 The metadata is stored in a JSON file at assets/slides/gamma_metadata.json
 """
 
-import os
 import json
 from datetime import datetime
 from typing import Dict, List, Optional, Any
@@ -33,7 +32,9 @@ class GammaMetadata:
         if metadata_file is None:
             # Default to assets/slides/gamma_metadata.json relative to project root
             project_root = Path(__file__).parent.parent.parent
-            self.metadata_file = project_root / "assets" / "slides" / "gamma_metadata.json"
+            self.metadata_file = (
+                project_root / "assets" / "slides" / "gamma_metadata.json"
+            )
         else:
             self.metadata_file = Path(metadata_file)
 
@@ -47,7 +48,7 @@ class GammaMetadata:
         """Load metadata from JSON file"""
         if self.metadata_file.exists():
             try:
-                with open(self.metadata_file, 'r') as f:
+                with open(self.metadata_file, "r") as f:
                     return json.load(f)
             except json.JSONDecodeError:
                 # If file is corrupted, start fresh
@@ -57,7 +58,7 @@ class GammaMetadata:
 
     def _save_metadata(self):
         """Save metadata to JSON file"""
-        with open(self.metadata_file, 'w') as f:
+        with open(self.metadata_file, "w") as f:
             json.dump(self.metadata, f, indent=2)
 
     def add_presentation(
@@ -68,7 +69,7 @@ class GammaMetadata:
         title: str,
         format: str = "presentation",
         num_cards: int = 15,
-        theme_name: Optional[str] = None
+        theme_name: Optional[str] = None,
     ) -> str:
         """
         Add a new presentation to the metadata.
@@ -101,7 +102,7 @@ class GammaMetadata:
             "updated_at": timestamp,
             "title": title,
             "format": format,
-            "num_cards": num_cards
+            "num_cards": num_cards,
         }
 
         if theme_name:
@@ -118,7 +119,7 @@ class GammaMetadata:
         identifier: str,
         gamma_id: Optional[str] = None,
         gamma_url: Optional[str] = None,
-        num_cards: Optional[int] = None
+        num_cards: Optional[int] = None,
     ):
         """
         Update an existing presentation's metadata.
@@ -232,22 +233,24 @@ class GammaMetadata:
         return {
             "total_presentations": len(presentations),
             "formats": {
-                "presentation": len([p for p in presentations if p.get("format") == "presentation"]),
-                "document": len([p for p in presentations if p.get("format") == "document"]),
-                "social": len([p for p in presentations if p.get("format") == "social"]),
+                "presentation": len(
+                    [p for p in presentations if p.get("format") == "presentation"]
+                ),
+                "document": len(
+                    [p for p in presentations if p.get("format") == "document"]
+                ),
+                "social": len(
+                    [p for p in presentations if p.get("format") == "social"]
+                ),
             },
             "total_cards": sum(p.get("num_cards", 0) for p in presentations),
-            "most_recent": presentations[-1] if presentations else None
+            "most_recent": presentations[-1] if presentations else None,
         }
 
 
 # Convenience functions for quick access
 def add_presentation_quick(
-    local_file: str,
-    gamma_id: str,
-    gamma_url: str,
-    title: str,
-    **kwargs
+    local_file: str, gamma_id: str, gamma_url: str, title: str, **kwargs
 ) -> str:
     """
     Quickly add a presentation to metadata.
@@ -268,7 +271,7 @@ def add_presentation_quick(
         gamma_id=gamma_id,
         gamma_url=gamma_url,
         title=title,
-        **kwargs
+        **kwargs,
     )
 
 
